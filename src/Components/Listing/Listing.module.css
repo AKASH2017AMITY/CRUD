@@ -1,0 +1,77 @@
+.container1 {
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 95%;
+    padding: 15px 5px;
+}
+
+table,tr,th,td {
+    border: 1px solid black;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: black;
+    color: white;
+    font-size: x-large;
+    font-weight: 600;
+    padding: 7px;
+
+}
+
+td {
+    padding: 5px;
+    text-transform: capitalize;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: blueviolet;
+    color: white;
+    padding: 8px 20px;
+    margin:  15px 37px;
+    border: transparent;
+    font-size: large;
+    float: left;
+    
+}
+.btn:hover {
+    background-color: rgb(97, 13, 176);
+    color: white;
+    padding: 8px 20px;
+    margin:  15px 37px;
+    border: transparent;
+    font-size: large;
+    float: left;
+    
+}
+
+@media screen and (max-width: 750px){
+    .btn{
+        margin: 10px;
+    }
+}
+.btn1 {
+    background-color: green;
+    color: white;
+    padding: 8px 20px;
+    margin-right: 8px;
+    border: transparent;
+    font-size: large;
+    width: 120px;
+    margin-bottom: 8px;
+    
+}
+.btn2 {
+    background-color: red;
+    color: white;
+    padding: 8px 20px;
+    margin-right: 8px;
+    border: transparent;
+    font-size: large;
+    width: 120px;
+    
+}

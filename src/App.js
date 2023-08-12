@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Listing from './Components/Listing/Listing';
+import { useState } from 'react';
+import Add from './Components/Add/Add';
 
 function App() {
+  const [click,setClick]= useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Crud operation in React JS</h1>
+      {click ? <Add click={click} setClick={setClick}/>:<Listing  click={click} setClick={setClick}/>}
     </div>
   );
 }

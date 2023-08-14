@@ -25,7 +25,6 @@ td {
     text-transform: capitalize;
     font-size: large;
     font-weight: 600;
-    cursor: pointer;
 }
 
 .btn {
@@ -62,7 +61,8 @@ td {
     border: transparent;
     font-size: large;
     width: 120px;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
+    cursor: pointer;
     
 }
 .btn2 {
@@ -73,5 +73,5 @@ td {
     border: transparent;
     font-size: large;
     width: 120px;
-    
+    cursor: pointer;
 }

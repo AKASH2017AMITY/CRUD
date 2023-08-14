@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Listing.module.css"
+import EditPage from '../EditPage/EditPage';
+// import { Link,useNavigate } from 'react-router-dom';
 
-function Listing({click,setClick}) {
+function Listing({click,setClick,setEdit}) {
   const [empData, setEmpData] = useState();
   
-
-  
-
   useEffect(() => {
     fetch("http://localhost:8000/employee")
       .then((res) => {return res.json();})
@@ -15,6 +14,23 @@ function Listing({click,setClick}) {
         console.log(err.message)
       }))
   }, [])
+
+  // const handleEdit = (id) =>{
+  //   setEdit((prev)=>!prev)
+  // }
+
+  const handleDelete = (id) => {
+    if(window.confirm("Do you wnt to remove")){
+      fetch("http://localhost:8000/employee/"+ id,{method: "Delete"})
+      .then((res)=>{
+        alert("Removed Succesfully");
+        window.location.reload();
+      }).catch((err => {
+        console.log(err.message)
+      }))
+    }
+
+  }
 
   return (
     <div className={styles.container1}>
@@ -41,10 +57,11 @@ function Listing({click,setClick}) {
                  <td>{item.email}</td>
                  <td>{item.phone}</td>
                  <td>
-                 <button className={styles.btn1}>Edit</button>
-                 <button className={styles.btn2}>Delete</button>
+                 <button className={styles.btn1} onClick={()=>setEdit(prev=>!prev)}>Edit</button>
+                 <button className={styles.btn2}  onClick={()=>handleDelete(item.id)}>Remove</button>
+                 
                  </td>
-
+                 
                 </tr>
               ))
             }

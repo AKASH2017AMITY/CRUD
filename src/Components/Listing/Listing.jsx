@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Listing.module.css"
-import EditPage from '../EditPage/EditPage';
 import { Link,useNavigate } from 'react-router-dom';
 
 function Listing({click,setClick,setEdit}) {
@@ -16,8 +15,8 @@ function Listing({click,setClick,setEdit}) {
       }))
   }, [])
 
-  const handleEdit = (id) =>{
-    navigate("/employee/edit"+id);
+  const handleEdit = (empId) =>{
+    navigate("/employee/edit/"+ empId);
   }
 
   const handleDelete = (id) => {
@@ -35,7 +34,7 @@ function Listing({click,setClick,setEdit}) {
 
   return (
     <div className={styles.container1}>
-      <h2>Listing</h2>
+      <h1>Listing</h1>
       <div className={styles.center}><Link to="employee/create" className={styles.btn} >Add New (+)</Link></div>
       <div>
         <table width="95%">

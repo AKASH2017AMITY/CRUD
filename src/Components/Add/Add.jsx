@@ -5,10 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function Add() {
 
-    const [id, setId] = useState("");
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [id, setId] = useState();
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [phone, setPhone] = useState();
 
     const navigate = useNavigate();
 

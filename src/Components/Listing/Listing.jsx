@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Listing.module.css"
 import EditPage from '../EditPage/EditPage';
-// import { Link,useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 function Listing({click,setClick,setEdit}) {
-  const [empData, setEmpData] = useState();
+  const [empData, setEmpData] = useState(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     fetch("http://localhost:8000/employee")
@@ -15,9 +16,9 @@ function Listing({click,setClick,setEdit}) {
       }))
   }, [])
 
-  // const handleEdit = (id) =>{
-  //   setEdit((prev)=>!prev)
-  // }
+  const handleEdit = (id) =>{
+    navigate("/employee/edit"+id);
+  }
 
   const handleDelete = (id) => {
     if(window.confirm("Do you wnt to remove")){
@@ -35,7 +36,7 @@ function Listing({click,setClick,setEdit}) {
   return (
     <div className={styles.container1}>
       <h2>Listing</h2>
-      <div className={styles.center}><button className={styles.btn} onClick={()=>setClick((prev)=>!prev)}>Add New (+)</button></div>
+      <div className={styles.center}><Link to="employee/create" className={styles.btn} >Add New (+)</Link></div>
       <div>
         <table width="95%">
          <thead>
@@ -51,13 +52,13 @@ function Listing({click,setClick,setEdit}) {
             { 
               empData &&
               empData.map(item=>(
-                <tr id={item.id}>
+                <tr key={item.id}>
                  <td>{item.id}</td>
                  <td>{item.name}</td>
                  <td>{item.email}</td>
                  <td>{item.phone}</td>
                  <td>
-                 <button className={styles.btn1} onClick={()=>setEdit(prev=>!prev)}>Edit</button>
+                 <button className={styles.btn1} onClick={()=>handleEdit(item.id)}>Edit</button>
                  <button className={styles.btn2}  onClick={()=>handleDelete(item.id)}>Remove</button>
                  
                  </td>
@@ -72,4 +73,4 @@ function Listing({click,setClick,setEdit}) {
   )
 }
 
-export default Listing
+export default Listing;

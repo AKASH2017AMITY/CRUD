@@ -35,6 +35,7 @@ td {
     border: transparent;
     font-size: large;
     float: left;
+    text-decoration: none;
     
 }
 .btn:hover {
